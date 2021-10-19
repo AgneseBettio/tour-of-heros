@@ -6,6 +6,8 @@ import { HEROES } from './mock-heroes';
 // In a later tutorial on HTTP, you'll learn that Angular's HttpClient methods return RxJS Observables. In this tutorial, you'll simulate getting data from the server with the RxJS of() function.
 // Open the HeroService file and import the Observable and of symbols from RxJS.
 import { Observable, of } from 'rxjs';
+//injection MessageService
+import { MessageService } from './message.service';
 
 @Injectable({
   
@@ -14,7 +16,7 @@ import { Observable, of } from 'rxjs';
 })
 export class HeroService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
   // getHeroes() to return data
   // getHeroes(): Hero[] {
   //   return HEROES;
@@ -22,6 +24,7 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     //of(HEROES) returns an Observable<Hero[]> that emits a single value, the array of mock heroes
     const heroes = of(HEROES);
+    this.messageService.add('Hero Service: fetched Heroes');
     return heroes;
 
   }
