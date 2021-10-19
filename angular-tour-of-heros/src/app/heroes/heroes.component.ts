@@ -10,7 +10,7 @@ import { MessageService } from '../message.service';
 export class HeroesComponent implements OnInit {
 
   // When the user clicks a hero in the list, the component should display the selected hero's details at the bottom of the page.
-  selectedHero?: Hero;
+  // selectedHero?: Hero;
   // heroes: (string | number)[] = HEROES; ---> NOT assignable
   heroes: Hero[] = [];
 
@@ -20,9 +20,9 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
     this.getHeroes();
   }
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  // }
   // getHeroes(): void {
   //   this.heroes = this.heroService.getHeroes();
   // }
