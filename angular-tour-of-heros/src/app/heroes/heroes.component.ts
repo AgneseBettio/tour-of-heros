@@ -9,11 +9,12 @@ import { HEROES } from '../mock-heroes';
 })
 export class HeroesComponent implements OnInit {
 
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-    ability: 'fire',
-  };
+  // When the user clicks a hero in the list, the component should display the selected hero's details at the bottom of the page.
+  selectedHero?: Hero;
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 
   // heroes: (string | number)[] = HEROES; ---> NOT assignable
   heroes = HEROES;
@@ -22,5 +23,6 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
